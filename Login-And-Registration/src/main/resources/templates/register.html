@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<style>
+#space {
+	margin: 200px 200px;
+}
+
+</style>
+</head>
+<body>
+	<div id="space">
+		<div class="container">
+			<h2>REGISTER</h2>
+			<form th:action="@{/register}" th:object="${registerForm}" method="post">
+				<!-- Method post yani postla gondericez.. -->
+				<div class="form-group">
+					<label for="username">Name</label> 
+					<input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" autofocus="autofocus">
+					
+					<label for="surname">Surname</label> 
+					<input type="text" class="form-control" id="surname" placeholder="Enter Surname" name="surname" autofocus="autofocus">
+					
+					<label for="password">Password:</label> 
+					<input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+					
+					<label for="mail">Mail:</label> 
+					<input type="text" class="form-control" id="mail" placeholder="Enter mail" name="mail">
+					
+					<!-- id="pwd" placeholder="Enter password" name="pswd" -->
+				</div>
+				<button type="submit" class="btn btn-warning">Register </button>
+			</form>
+			<br />
+			<p th:if="${invalidCredentials}" class="error">These are exit person</p>
+		  <p th:if="${register}" class="error">Register</p>
+		</div>
+	</div>
+</body>
+</html>
